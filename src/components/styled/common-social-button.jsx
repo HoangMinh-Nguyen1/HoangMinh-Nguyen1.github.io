@@ -7,8 +7,8 @@ export const CommonSocialButton = styled.button`
     outline: none;
     border: none;
     border-radius: 50%;
-    height: 58px;
-    width: 58px;
+    height: 50px;
+    width: 50px;
     display: flex;
     align-items: center;
     justify-content: center;   

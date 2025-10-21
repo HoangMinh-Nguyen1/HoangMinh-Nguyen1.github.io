@@ -109,13 +109,13 @@ const Portfolio = (props) => {
               <Flex vertical gap={15} style={{height: "100%"}}>
                 <Flex vertical gap={10}>
                   <LargeText>
-                    <AlignedText>Hoang Minh Nguyen - <strong>Marketing Student</strong></AlignedText>
+                    <AlignedText>Hoang Minh Nguyen - <strong>Marketing Fresher</strong></AlignedText>
                   </LargeText>
-                  <LargeText>
+                  <MediumText>
                     <AlignedText>
                       Located in Hanoi, I have multiple media skills include photography, videography and graphic design with several marketing projects experience.
                     </AlignedText>
-                  </LargeText>
+                  </MediumText>
                 </Flex>
 
                 <div style={{
