@@ -17,6 +17,7 @@ import photography from "@/assets/images/projects/photography.png"
 import graphicDesign from "@/assets/images/projects/graphic_design.png"
 import videography from "@/assets/images/projects/videography.png"
 import dataVisualization from "@/assets/images/projects/data_visualization.png"
+import mediaProject from "@/assets/images/projects/Media Project.png"
 
 export const projects = [
   {
@@ -53,7 +54,7 @@ export const projects = [
     link: "https://drive.google.com/file/d/1zOcHdhiHg68l3moaKUvLjZ00HcnJSCJT/view?usp=drive_link",
   },
   {
-    image: photography,
+    image: mediaProject,
     title: "Media Projects",
     desc: "Overall media projects I have done including photography, videography & graphic design.",
     skills: [

@@ -2,10 +2,18 @@ import GraphicDesign from "@/assets/images/service-icon/graphic-design.svg?react
 import Editing from "@/assets/images/service-icon/editing.svg?react";
 
 export const introduction = {
-  title: "MARKETING / BRAND INTERNSHIP",
+  title: "BRAND / DIGITAL MARKETING EXECUTIVE",
   descriptions: [
-    `<p>I am actively seeking an <strong>internship opportunity</strong> to develop my skills in a professional environment.</p>`,
-    `<p>My passion lies in advertising, public relations, and brand strategy, and I am eager to gain experience in <strong>client service</strong>, <strong>campaign management</strong>, and <strong>creative execution</strong>.</p>`
+    // Description 1: Introductory sentence with bold yellow highlighting
+    `<p>I am actively pursuing <span style="color: #FFD700; font-weight: bold;">entry-level executive</span> and <span style="color: #FFD700; font-weight: bold;">strategy roles</span> to develop my skills in a professional environment.</p>`,
+
+    // Description 2: The list of specific positions
+    `<ul>
+      <li>Brand Executive / Brand Strategy Intern (Agency)</li>
+      <li>Digital Marketing Executive / Analyst</li>
+      <li>Marketing Communication Executive</li>
+      <li>Creative Planner / Account Executive (Entry-level)</li>
+    </ul>`
   ],
 };
 

@@ -3,7 +3,7 @@ import {CommonContainer} from "@/components/styled/common-container.jsx";
 import {Col, Flex, message, notification, Row, Tooltip} from "antd";
 import {CommonCard} from "@/components/styled/common-card.jsx";
 import {CustomTitle} from "@/components/styled/custom-title.jsx";
-import portrait from "@/assets/images/portrait.png";
+import portrait from "@/assets/images/Avatar 1 - seeking.png";
 import {incentives, introduction, services} from "@/pages/seeking/constants.jsx";
 import CustomImage from "@/components/custom-image/index.jsx";
 import React, {useState} from "react";
@@ -76,31 +76,30 @@ const Seeking = (props) => {
     }
   };
 
-  // eslint-disable-next-line react/prop-types
   const LargeLayout = ({ errors, touched, values, setValues }) => {
     return (
       <Row gutter={[30,30]}>
         <Col span={24}>
-          <CustomTitleSeeking style={{color: "#F9D247", marginLeft: "20px"}}>JOBS I’M LOOKING FOR</CustomTitleSeeking>
-          <CommonCard style={{height: "280px"}}>
+          <CustomTitleSeeking style={{color: "#F9D247", marginLeft: "40px"}}>JOBS I’M LOOKING FOR</CustomTitleSeeking>
+          <CommonCard style={{height: "fit-content", minHeight: "280px", paddingBottom: "0px"}}>
             <DescLayout>
-              <div>
+              <div style={{display: "flex", flexBasis: "45%", flexDirection: "column", paddingLeft: "20px"}}>
                 <CustomTitleSeeking style={{fontSize: "20px"}}>{introduction.title}</CustomTitleSeeking>
                 <HiddenScrollbar style={{flex: "1"}}>
-                  <MediumText>
+                  <MediumText style={{flex: "1", display: "flex", flexDirection: "column", justifyContent: "flex-end"}}>
                     <ContentRight dangerouslySetInnerHTML={{__html: introduction.descriptions[0]}}></ContentRight>
-                    <ContentRight dangerouslySetInnerHTML={{__html: introduction.descriptions[1]}}></ContentRight>
+                    <ContentRight style={{marginBottom: 0, paddingBottom: 0}} dangerouslySetInnerHTML={{__html: introduction.descriptions[1]}}></ContentRight>
                   </MediumText>
                 </HiddenScrollbar>
 
               </div>
-              <PortraitContainer>
+              <PortraitContainer style={{flexBasis: "25%"}}>
                 <CustomPortrait src={portrait} alt=""/>
               </PortraitContainer>
-              <div>
+              <div style={{display: "flex", flexBasis: "30%", flexDirection: "column"}}>
                 <CustomTitleSeeking style={{color: "#F9D247", fontSize: "20px"}}>What I Bring to the Role?</CustomTitleSeeking>
-                <MediumText>
-                  <CustomList>
+                <MediumText style={{flex: "1", display: "flex", flexDirection: "column", justifyContent: "flex-end"}}>
+                  <CustomList style={{flex: "1", display: "flex", flexDirection: "column"}}>
                     {incentives.map((item, index) => (
                       <li key={index}>{item}</li>
                     ))}
@@ -224,25 +223,19 @@ const Seeking = (props) => {
   const SmallLayout = ({ errors, touched, values, setValues }) => {
     return (
       <>
+        <CustomTitleSeeking style={{color: "#F9D247", fontSize: "30px", textAlign: "center", marginBottom: "20px"}}>JOBS I’M LOOKING FOR</CustomTitleSeeking>
         <ContentGrid>
-          <RotatedText>
-            <RotatedTitle style={{color: "#F9D247", marginLeft: "-5px", fontSize: "25px"}}>JOBS I’M LOOKING FOR</RotatedTitle>
-          </RotatedText>
-          <CommonCard style={{overflow: "hidden", minHeight: "300px"}}>
-            <Flex vertical style={{height: "100%"}}>
-              <CustomTitleSeeking style={{fontSize: "25px", textAlign: "center", color: "white"}}>{introduction.title}</CustomTitleSeeking>
-              <SmallText style={{height: "100%"}}>
-                <Flex vertical style={{height: "100%"}}>
-                  <ContentRight style={{textAlign: "left"}} dangerouslySetInnerHTML={{__html: introduction.descriptions[0]}}></ContentRight>
-                  <div style={{display: "grid", gridTemplateColumns: "55% 1fr", flex: "1"}}>
-                    <ContentRight style={{textAlign: "left"}}
-                                  dangerouslySetInnerHTML={{__html: introduction.descriptions[1]}}></ContentRight>
 
-                    <PortraitContainer>
-                      <SmallLayoutPortrait src={portrait} alt=""/>
-                    </PortraitContainer>
-                  </div>
-                </Flex>
+          <CommonCard style={{overflow: "hidden", minHeight: "330px"}}>
+            <Flex vertical style={{height: "100%"}}>
+              <CustomTitleSeeking style={{fontSize: "22px", textAlign: "center", color: "white"}}>{introduction.title}</CustomTitleSeeking>
+              <SmallText style={{height: "100%", display: "flex", flexDirection: "column", justifyContent: "center"}}>
+                                <ContentRight style={{textAlign: "left"}} dangerouslySetInnerHTML={{__html: introduction.descriptions[0]}}></ContentRight>
+                                <div style={{display: "flex", flexDirection: "column", flex: "1", gap: "10px"}}>
+                                                    <ContentRight style={{textAlign: "left", flex: "1"}}
+                                                                  dangerouslySetInnerHTML={{__html: introduction.descriptions[1]}}></ContentRight>
+                                                  </div>
+
               </SmallText>
             </Flex>
           </CommonCard>
@@ -344,7 +337,7 @@ const Seeking = (props) => {
   }
 
   return (
-    <CustomContainer {...props} style={!isSmallScreen ? {marginTop: "30px", display: "flex", alignItems: "center"}: {marginTop: "80px"}}>
+    <CustomContainer {...props} style={!isSmallScreen ? {marginTop: "30px", display: "flex", alignItems: "center"}: {marginTop: "35px"}}>
       {contextHolder}
       <Formik
         initialValues={{
@@ -387,7 +380,7 @@ const Rect = styled.div`
 
 const RotatedTitle = styled(CustomTitleSeeking)`
     transform: rotate(-90deg);
-    //left: 5px;
+    left: -5px;
     position: absolute;
     width: max-content;
     line-height: 0px;
@@ -405,8 +398,12 @@ const RotatedText = styled.div`
 
 const ContentGrid = styled.div`
     display: grid;
-    grid-template-columns: 60px 1fr;
+    grid-template-columns: 40px 1fr;
     margin-bottom: 20px;
+
+    @media (max-width: 850px) {
+        grid-template-columns: 1fr;
+    }
 `;
 
 const CustomContainer = styled(CommonContainer)`
@@ -422,10 +419,14 @@ const CustomCard = styled(CommonCard)`
 const DescLayout = styled.div`
     width: 100%;
     height: 100%;
-    display: grid;
-    grid-template-columns: 40% 1fr 30%;
+    display: flex;
     gap: 10px;
     text-align: start;
+    position: relative;
+
+    @media (max-width: 1000px) {
+        flex-direction: column;
+    }
 `;
 
 const ServiceContent = styled.div`
@@ -440,35 +441,22 @@ const ErrorMessage = styled.div`
 `;
 
 const PortraitContainer = styled.div`
-    width: 100%;
-    margin-bottom: -20px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    
-    @media (max-width: 1000px) {
-        width: calc(100% + 20px);
-    }
+    flex-basis: 30%;
+    align-self: flex-end;
+    margin-top: -100px;
+    margin-bottom: -6px; 
 `;
 
 const CustomPortrait = styled.img`
-  position: absolute;
-  bottom: -3px;
-  max-height: 132%;
-  max-width: 100%;
+  width: 100%;
+  max-height: 380px;
+  object-fit: contain;
+  object-position: center bottom;
 `;
 
 const SmallLayoutPortrait = styled(CustomPortrait)`
-    max-height: unset;
-    max-width: unset;
-    height: 120%;
-    width: calc(100% + 10px);
-    object-fit: cover;
-    object-position: center top;
-
-    @media (max-width: 400px) {
-        height: 110%;
-    }
+    margin: auto;
+    max-height: 250px;
 `;
 
 const DashLine = styled.div`
@@ -480,7 +468,10 @@ const DashLine = styled.div`
 
 const ContentRight = styled.div`
     p {
-        margin-bottom: 10px;
+        margin-bottom: 0 !important;
+    }
+        & > *:last-child {
+        margin-bottom: 0 !important;
     }
 `;
 
@@ -489,7 +480,7 @@ const CustomList = styled.ul`
   padding-left: 20px;
   margin: 0;
   li {
-    line-height: 40px;
+    line-height: 35px;
   }
     
     @media (max-width: 1000px) {

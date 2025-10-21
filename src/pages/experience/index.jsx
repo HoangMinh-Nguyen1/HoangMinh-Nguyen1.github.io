@@ -6,12 +6,17 @@ import {CommonCard} from "@/components/styled/common-card.jsx";
 import {CustomTitle} from "@/components/styled/custom-title.jsx";
 import {SmallText} from "@/components/styled/text-size/small-text.jsx";
 import {MediumText} from "@/components/styled/text-size/medium-text.jsx";
+import {useMediaQuery} from "react-responsive";
 
 const Experience = (props) => {
 
+  const isSmallScreen = useMediaQuery({maxWidth: 850});
+
   return (
     <CustomContainer {...props}>
-      <CustomTitle>EXPERIENCE OR WORK</CustomTitle>
+      <CustomTitle style={isSmallScreen ? {marginBottom: "10px"} : {}}>
+        {isSmallScreen ? "MY EXPERIENCE" : "EXPERIENCE OR WORK"}
+      </CustomTitle>
       <div style={{flex: 1, width: "100%"}}>
         <Row gutter={[20,20]}>
           {experiences.map((exp, index) => (
